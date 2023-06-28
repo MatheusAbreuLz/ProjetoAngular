@@ -1,38 +1,29 @@
-ion-toolbar{
-  --background: rgb(201,6,6);
-  --background: linear-gradient(90deg, rgba(201,6,6,1) 0%, rgba(2,0,36,1) 100%, rgba(0,212,255,1) 100%);
-  & ion-title {
-    --color: white;
+ion-toolbar {
+  --background: rgb(2,0,36);
+  --background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  & ion-title{
+    color: beige;
   }
-}
- 
-.main{
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .calculator-main{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  display: block;
-  background-color: white;
-  height: 50%;
-  min-width: 80vw;
+  background-color: rgb(83, 82, 82);
 }
+
 
 .display{
+  text-align: end;
   background-color: white;
   color: black;
-  padding: 60px 15px 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
 }
 
-ion-input{
-  background-color: rgb(87, 6, 22);
-  font-size: 1rem;
+ion-label{
+  background-color: rgb(147, 144, 145);
+  font-size: 2rem;
+  text-align:right;
 }
 
 ion-col{
@@ -44,9 +35,10 @@ ion-col{
 }
 
 ion-button{
-  height: 1rem;
-  width: 1rem;
+  color: aqua;
+  height: 50px;
+  width: 50px;
   border-radius: 50;
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 

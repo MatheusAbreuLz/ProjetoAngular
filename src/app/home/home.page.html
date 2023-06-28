@@ -6,80 +6,111 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="main">
-  <div class="calculator-main" fixed="true">
-    <div class="display">
-      <ion-label class="ion-text-end">{{this.VisibleNum}}</ion-label>
-    </div>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button shape="round" color="light" *ngIf="!isc" (click)="click('ac')">AC</ion-button>
-          <ion-button shape="round" color="light" *ngIf="isc" (click)="click('c')">C</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="light" (click)="click('+/-')">+/-</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="light" (click)="click('%')">%</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="warning" (click)="click(':')">:</ion-button>
-        </ion-col>
+<ion-content [fullscreen]="true">
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="14" size-lg="4" fixed="true">
+      <ion-row class="ion-justify-content-center">
+        <ion-card>
+          
+          <ion-card size="14" size-lg="4" class="calculator-main" fixed="true" >
+            <div class="display">
+              <ion-label >{{this.VisibleNum}}</ion-label>
+            </div>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button color="danger" *ngIf="!isc" (click)="click('ac')">AC</ion-button>
+                  <ion-button color="danger" *ngIf="isc" (click)="click('c')">C</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button size="large" color="dark" (click)="click('Clock')"><ion-icon name="time-outline"></ion-icon></ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="simbulo" color="dark" (click)="click('%')">%</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="simbulo" color="dark" (click)="click(':')">/</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button></ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button></ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button></ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button></ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button></ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center ion-align-items-center">
+                <ion-col>
+                  <ion-button color="dark" (click)="click('7')">7</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click('8')">8</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click('9')">9</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="simbulo" color="dark" (click)="click('X')">X</ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center ion-align-items-center">
+                <ion-col>
+                  <ion-button color="dark" (click)="click('4')">4</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click('5')">5</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click('6')">6</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="simbulo" color="dark" (click)="click('-')">-</ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center ion-align-items-center">
+                <ion-col>
+                  <ion-button color="dark" (click)="click('1')">1</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click('2')">2</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click('3')">3</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="simbulo" color="dark" (click)="click('+')">+</ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center ion-align-items-center">
+                <ion-col>
+                  <ion-button color="dark" (click)="click('+/-')">+/-</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click('0')">0</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="dark" (click)="click(',')">,</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button color="success" (click)="click('=')">=</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-card>
+       
       </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('7')">7</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('8')">8</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('9')">9</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('X')">X</ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('4')">4</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('5')">5</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('6')">6</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('-')">-</ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('1')">1</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('2')">2</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('3')">3</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('+')">+</ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click(',')">,</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('0')">0</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button shape="round" color="dark" (click)="click('=')">=</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+    </ion-col>
+  </ion-row>
 </ion-content>
+
+

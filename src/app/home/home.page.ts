@@ -13,6 +13,8 @@ import { first } from 'rxjs';
 })
 export class HomePage {
 
+  
+
   operator: any = null;
 
   VisibleNum: string = '0';
@@ -212,5 +214,4 @@ export class HomePage {
       this.iscomma = false;
     }
   }
-
 }
