@@ -6,208 +6,80 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-lg="6">
-      <ion-segment value="ads" [scrollable]="true" (ionChange)="trocarCurso($event)">
-
-        <ion-segment-button value="ads">
-          <ion-label>Analise e Desenvolvimento de Sistemas</ion-label>
-        </ion-segment-button>
-    
-        <ion-segment-button value="ge">
-          <ion-label>Gestão Empresarial</ion-label>
-        </ion-segment-button>
-    
-        <ion-segment-button value="gti">
-          <ion-label>Gestão da Tecnologia da Informação</ion-label>
-        </ion-segment-button>
-
-      </ion-segment>
-    </ion-col>
-  </ion-row>
-  
-
-  <!-- Curso de ADS -->
-  <ng-container *ngIf="this.selected == 'ads'">
-    <ion-row>
-      <ion-col size="12" >
-       
-        <ion-row>
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Programação Mobile</ion-card-title>
-                <ion-card-subtitle>Bootstrap e Ionic</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-  
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Programação Web</ion-card-title>
-                <ion-card-subtitle>HTML & CSS</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-  
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/777001/pexels-photo-777001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Programação Desktop</ion-card-title>
-                <ion-card-subtitle>C# & JAVA</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-        </ion-row>
-  
-      </ion-col>
-    </ion-row>
-  </ng-container>
-  <ng-container *ngIf="this.selected == 'ge'">
-    <ion-row>
-      <ion-col size="12" >
-       
-        <ion-row>
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Gestão de Pessoas</ion-card-title>
-                <ion-card-subtitle>Relacionamento & interação</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-  
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/4061943/pexels-photo-4061943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Metodologia</ion-card-title>
-                <ion-card-subtitle>Fordismo & Taylorismo</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-  
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/7269676/pexels-photo-7269676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Calculo</ion-card-title>
-                <ion-card-subtitle>Financeiro e Discreto</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-        </ion-row>
-  
-      </ion-col>
-    </ion-row>
-  </ng-container>
-  <ng-container *ngIf="this.selected == 'gti'">
-    <ion-row>
-      <ion-col size="12" >
-       
-        <ion-row>
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/2748445/pexels-photo-2748445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Programação de TI</ion-card-title>
-                <ion-card-subtitle>Bootstrap e Ionic</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-  
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Gestão de equipe</ion-card-title>
-                <ion-card-subtitle>HTML & CSS</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-  
-          <ion-col size="4">
-  
-            <ion-card>
-              <img alt="Silhouette of mountains" src="https://images.pexels.com/photos/840996/pexels-photo-840996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <ion-card-header>
-                <ion-card-title>Programação Desktop</ion-card-title>
-                <ion-card-subtitle>C# & JAVA</ion-card-subtitle>
-              </ion-card-header>
-            
-              <ion-card-content>
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </ion-card-content>
-            </ion-card>
-  
-          </ion-col>
-        </ion-row>
-  
-      </ion-col>
-    </ion-row>
-  </ng-container>
-  
-
-  <!-- Curso de adm -->
-  
-
-  <!-- Curso de GTI -->
-  
-
+<ion-content [fullscreen]="true" class="main">
+  <div class="calculator-main" fixed="true">
+    <div class="display">
+      <ion-label class="ion-text-end">{{this.VisibleNum}}</ion-label>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="light" *ngIf="!isc" (click)="click('ac')">AC</ion-button>
+          <ion-button shape="round" color="light" *ngIf="isc" (click)="click('c')">C</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="light" (click)="click('+/-')">+/-</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="light" (click)="click('%')">%</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="warning" (click)="click(':')">:</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('7')">7</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('8')">8</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('9')">9</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('X')">X</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('4')">4</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('5')">5</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('6')">6</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('-')">-</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('1')">1</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('2')">2</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('3')">3</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('+')">+</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click(',')">,</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('0')">0</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" color="dark" (click)="click('=')">=</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
