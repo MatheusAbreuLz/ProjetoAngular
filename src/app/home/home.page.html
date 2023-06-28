@@ -13,7 +13,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-card>
           
-          <ion-card size="14" size-lg="4" class="calculator-main" fixed="true" >
+          <ion-card size="10" size-lg="4" class="calculator-main" fixed="true" >
             <div class="display">
               <ion-label >{{this.VisibleNum}}</ion-label>
             </div>
@@ -32,20 +32,14 @@
                 <ion-col>
                   <ion-button class="simbulo" color="dark" (click)="click(':')">/</ion-button>
                 </ion-col>
-                <ion-col>
-                  <ion-button></ion-button>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')">aaa</ion-button>
                 </ion-col>
-                <ion-col>
-                  <ion-button></ion-button>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
                 </ion-col>
-                <ion-col>
-                  <ion-button></ion-button>
-                </ion-col>
-                <ion-col>
-                  <ion-button></ion-button>
-                </ion-col>
-                <ion-col>
-                  <ion-button></ion-button>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
                 </ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-center ion-align-items-center">
@@ -61,6 +55,15 @@
                 <ion-col>
                   <ion-button class="simbulo" color="dark" (click)="click('X')">X</ion-button>
                 </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')">aaa</ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
+                </ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-center ion-align-items-center">
                 <ion-col>
@@ -74,6 +77,15 @@
                 </ion-col>
                 <ion-col>
                   <ion-button class="simbulo" color="dark" (click)="click('-')">-</ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')">aaa</ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
                 </ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-center ion-align-items-center">
@@ -89,6 +101,15 @@
                 <ion-col>
                   <ion-button class="simbulo" color="dark" (click)="click('+')">+</ion-button>
                 </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')">aaa</ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
+                </ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-center ion-align-items-center">
                 <ion-col>
@@ -103,11 +124,19 @@
                 <ion-col>
                   <ion-button color="success" (click)="click('=')">=</ion-button>
                 </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')">aaa</ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
+                </ion-col>
+                <ion-col *ngIf="superior">
+                  <ion-button color="dark"  (click)="click('aa')"></ion-button>
+                </ion-col>
               </ion-row>
             </ion-grid>
           </ion-card>
         </ion-card>
-       
       </ion-row>
     </ion-col>
   </ion-row>

@@ -13,13 +13,18 @@ import { first } from 'rxjs';
 })
 export class HomePage {
 
-  
+  superior: any = false;
+
+  history: any = [];
+  historyAnswer: any = [];
 
   operator: any = null;
 
   VisibleNum: string = '0';
 
   firstNum: any = null;
+
+  num: number = 0;
 
   isc: any = false;
 
@@ -39,14 +44,14 @@ export class HomePage {
         this.isc = false;
         break;
       case '+/-':
-        if(Math.sign(parseInt(this.VisibleNum, 0)) === 1){
-          const sign = -Math.abs(parseInt(this.VisibleNum, 0));
-        } else if(Math.sign(parseInt(this.VisibleNum, 0)) === -1){
-          const sign = -Math.abs(parseInt(this.VisibleNum, 0));
+        if(this.superior === true){
+          this.superior = false; 
         } else {
-          this.VisibleNum = this.VisibleNum;
+          this.superior = true;
         }
-        break
+        console.log(this.history)
+        console.log(this.historyAnswer)
+        break;
       case '%':
         this.addp();
         break;
@@ -177,14 +182,23 @@ export class HomePage {
     switch(this.operator){
       case ':':
         if(this.iscomma === true) {
+          this.history[this.num] = `${this.firstNum} / ${parseFloat(this.VisibleNum)}`;
+          this.num++;
           this.firstNum = (this.firstNum / parseFloat(this.VisibleNum));
+          this.historyAnswer[this.num] = this.firstNum;
         } else {
+          this.history[this.num] = `${this.firstNum} / ${parseInt(this.VisibleNum)}`;
+          this.num++;
           this.firstNum = (this.firstNum / parseInt(this.VisibleNum, 0));
+          this.historyAnswer[this.num] = this.firstNum;
         }
         break;
       case 'X':
         if(this.iscomma === true) {
+          this.history[this.num] = `${this.firstNum} * ${parseFloat(this.VisibleNum)}`;
+          this.num++;
           this.firstNum = (this.firstNum * parseFloat(this.VisibleNum));
+          this.historyAnswer[this.num] = this.firstNum;
         } else {
           this.firstNum = (this.firstNum * parseInt(this.VisibleNum, 0));
         }
