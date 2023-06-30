@@ -12,16 +12,14 @@ ion-toolbar {
 
 
 .display{
-  text-align: end;
+  text-align:right;
   background-color: white;
   color: black;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 20px;
 }
 
 ion-label{
-  background-color: rgb(147, 144, 145);
   font-size: 2rem;
   text-align:right;
 }
@@ -30,10 +28,15 @@ ion-col{
   text-align: center;
 }
 
+#main{
+  background-color: gray;
+}
 
-
-*{
-  outline: 1px solid red;
+#historico{
+  text-align: end;
+  font-size: 1rem;
+  color: gray;
+  text-align:right;
 }
 
 ion-button{

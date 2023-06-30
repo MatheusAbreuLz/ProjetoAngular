@@ -13,10 +13,18 @@ import { first } from 'rxjs';
 })
 export class HomePage {
 
+  eulerV: any = '';
+  eulerVisible: any = '';
+  
+
   superior: any = false;
+
+  operatorArray: any = [['+', '-', '*', '/', '%', '**'],['√','π','euler','eulerAlone'],['ac','c']];
 
   history: any = [];
   historyAnswer: any = [];
+  VisibleHistory: string = '';
+
 
   operator: any = null;
 
@@ -31,82 +39,87 @@ export class HomePage {
   iscomma: any = false;
 
   new: any = false;
-
+  
   click(val: any){
-    switch (val){
-      case 'ac':
+    if(!isNaN(val)){
+      this.putNumber(val);
+    } else if(this.operatorArray[0].includes(val)){
+      if(val === '%'){
+        this.addp()
+      } else{
+        this.addOperator(val);
+      }
+    } else if(this.operatorArray[1].includes(val)){
+      if(val === 'π'){
+        this.putNumber('3.14');
+      }else if(val === 'euler') {
+        this.euler()
+      } else if(val === 'eulerAlone'){
+        this.putNumber('2.718')
+      } else {
+        this.Special()
+      }
+    } else if(val === '='){
+      if(this.firstNum !== null && this.operator !== null){
+        this.calcular()
+      }
+      this.operator = null;
+    } else if(this.operatorArray[2].includes(val)) {
+      if(val == this.operatorArray[2][0]){
         this.VisibleNum = '0';
-        this.firstNum = 0;
+        this.firstNum = null;
         this.operator = null;
-        break;
-      case 'c':
-        this.VisibleNum = '0';
-        this.isc = false;
-        break;
-      case '+/-':
-        if(this.superior === true){
-          this.superior = false; 
-        } else {
-          this.superior = true;
+        this.VisibleHistory = '';
+        this.eulerVisible = '';
+      } else {
+        if(this.VisibleHistory !== ''){
+          this.VisibleNum = '0';
+          this.firstNum = null;
+          this.operator = null;
+          this.VisibleHistory = '';
+          this.eulerVisible = '';
+        }else{
+          this.VisibleNum = '0';
+          this.isc = false;
         }
-        console.log(this.history)
-        console.log(this.historyAnswer)
-        break;
-      case '%':
-        this.addp();
-        break;
-      case ':':
-        this.addOperator(":");
-        break;
-      case 'X':
-        this.addOperator("X");
-        break;
-      case '-':
-        this.addOperator("-");
-        break;
-      case '+':
-        this.addOperator("+");
-        break;
-      case '=':
-        if(this.firstNum !== null && this.operator !== null){
-          this.calcular()
-        }
-        this.operator = null;
-        break;
-      case '0':
-        this.putNumber('0');
-        break;
-      case '1':
-        this.putNumber('1');
-        break;
-      case '2':
-        this.putNumber('2');
-        break;
-      case '3':
-        this.putNumber('3');
-        break;
-      case '4':
-        this.putNumber('4');
-        break;
-      case '5':
-        this.putNumber('5');
-        break;
-      case '6':
-        this.putNumber('6');
-        break;
-      case '7':
-        this.putNumber('7');
-        break;
-      case '8':
-        this.putNumber('8');
-        break;
-      case '9':
-        this.putNumber('9');
-        break;
-      case ',':
-        this.addcomma();
-        break;
+      }
+    } else if(val === 'W') {
+      if(this.superior === true){
+        this.superior = false; 
+      } else  {
+        this.superior = true;
+      }
+      console.log(this.history)
+      console.log(this.historyAnswer)
+    } else if(val === ',') {
+      this.addcomma()
+    } else {
+      if(this.num !== 0){
+        this.history[this.num] = `${this.firstNum} ${this.operator} ${this.VisibleNum} `;
+        this.VisibleHistory = `${this.history[this.num-1]} =`;
+        this.firstNum = this.historyAnswer[this.num-1];
+        this.VisibleNum = this.firstNum.toString();
+      } else {
+        console.log("There isnt")
+      }
     }
+  }
+
+  euler(){
+    this.firstNum = parseFloat('2.718');
+    this.operator = '**';
+    this.eulerVisible = 'e^(';
+    this.iscomma = false;
+    this.new = true;
+    this.VisibleHistory = `${this.eulerVisible}`;
+  }
+
+  Special(){
+    this.iscomma = false;
+    // const para o percentual da valor do VisibleNum (VisiblePercentualValue) :) 
+    const Vispval = Math.sqrt(parseInt(this.VisibleNum, 0));
+    this.VisibleHistory = `√${this.VisibleNum} =`;
+    this.VisibleNum = Vispval.toString();
   }
 
   putNumber(val: string){
@@ -173,52 +186,29 @@ export class HomePage {
         this.calcular();
       }
     }
+    console.log(op, this.firstNum, this.VisibleNum);
     this.iscomma = false;
     this.operator = op;
     this.new = true;
+    this.VisibleHistory = `${this.firstNum} ${this.operator}`;
   }
 
   calcular(){
-    switch(this.operator){
-      case ':':
-        if(this.iscomma === true) {
-          this.history[this.num] = `${this.firstNum} / ${parseFloat(this.VisibleNum)}`;
-          this.num++;
-          this.firstNum = (this.firstNum / parseFloat(this.VisibleNum));
-          this.historyAnswer[this.num] = this.firstNum;
-        } else {
-          this.history[this.num] = `${this.firstNum} / ${parseInt(this.VisibleNum)}`;
-          this.num++;
-          this.firstNum = (this.firstNum / parseInt(this.VisibleNum, 0));
-          this.historyAnswer[this.num] = this.firstNum;
-        }
-        break;
-      case 'X':
-        if(this.iscomma === true) {
-          this.history[this.num] = `${this.firstNum} * ${parseFloat(this.VisibleNum)}`;
-          this.num++;
-          this.firstNum = (this.firstNum * parseFloat(this.VisibleNum));
-          this.historyAnswer[this.num] = this.firstNum;
-        } else {
-          this.firstNum = (this.firstNum * parseInt(this.VisibleNum, 0));
-        }
-        break;
-      case '-':
-        if(this.iscomma === true) {
-          this.firstNum = (this.firstNum - parseFloat(this.VisibleNum));
-        } else {
-          this.firstNum = (this.firstNum - parseInt(this.VisibleNum, 0));
-        }
-        break;
-      case '+':
-        if(this.iscomma === true) {
-          this.firstNum = (this.firstNum + parseFloat(this.VisibleNum));
-        } else {
-          this.firstNum = (this.firstNum + parseInt(this.VisibleNum, 0));
-        }
-        break;
+    if(this.eulerVisible === ''){
+      this.history[this.num] = `${this.firstNum} ${this.operator} ${this.VisibleNum} `;
+      this.VisibleHistory = `${this.firstNum} ${this.operator} ${this.VisibleNum} =`;
+      this.historyAnswer[this.num] = eval(this.history[this.num]);
+      this.firstNum = this.historyAnswer[this.num];
+      this.VisibleNum = this.firstNum.toString();
+      this.num++;
+    } else {
+      this.history[this.num] = `${this.firstNum} ${this.operator} ${this.VisibleNum} `;
+      this.VisibleHistory = `${this.eulerVisible} ${this.VisibleNum} ) =`;
+      this.historyAnswer[this.num] = eval(this.history[this.num]);
+      this.firstNum = this.historyAnswer[this.num];
+      this.VisibleNum = this.firstNum.toString();
+      this.num++;
     }
-    this.VisibleNum = this.firstNum.toString();
   }
 
   addcomma(){
